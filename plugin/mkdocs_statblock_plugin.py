@@ -1,11 +1,8 @@
 import os
-import markdown
 import mkdocs
-from mkdocs.plugins import BasePlugin
 from .statblock_handler import StatBlockHandler
 from mkdocs.structure.files import Files as MkDocsFiles
 from mkdocs.config.defaults import MkDocsConfig
-from mkdocs.config import config_options
 from pathlib import Path
 from collections import defaultdict
 

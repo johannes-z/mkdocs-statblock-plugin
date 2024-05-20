@@ -1,5 +1,4 @@
 import yaml
-from string import Template
 import os
 import re
 from jinja2 import Environment, FileSystemLoader
