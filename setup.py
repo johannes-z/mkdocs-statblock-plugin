@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="mkdocs-statblock-plugin",
+    name="mkdocs_statblock_plugin",
     version="0.1",
     description="MkDocs plugin to format YAML within statblock superfences as HTML",
     url="https://github.com/johannes-z/mkdocs-statblock-plugin.git",
@@ -15,7 +15,7 @@ setup(
     python_requires=">=3.6",
     entry_points={
         "mkdocs.plugins": [
-            "statblock = mkdocs_statblock_plugin.mkdocs_statblock_plugin:StatBlockPlugin"
+            "statblocks = mkdocs_statblock_plugin.mkdocs_statblock_plugin:StatBlockPlugin"
         ]
     },
 )
