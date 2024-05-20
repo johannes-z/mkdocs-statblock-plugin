@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="mkdocs_statblock_plugin",
-    version="0.1.1",
+    version="0.1.2",
     description="MkDocs plugin to format YAML within statblock superfences as HTML",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -15,6 +15,7 @@ setup(
     author="Johannes Zwirchmayr",
     author_email="johannes.zwirchmayr@gmail.com",
     packages=find_packages(),
+    package_data={"mkdocs_statblock_plugin": ["template.html"]},
     install_requires=[
         "mkdocs>=1.6.0",
         "pyyaml",

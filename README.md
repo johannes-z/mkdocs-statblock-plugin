@@ -62,3 +62,10 @@ Melee: null # erase the base monster's Melee definition
 ````
 
 Of course you can design a monster from scratch, by omitting the `monster` property.
+
+
+## Roadmap
+
+* Custom templates and a way to specify which template to use in statblocks
+    * This would also allow support for more systems
+* Performance fixes - only include statblock files that are referenced.
