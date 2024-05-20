@@ -4,6 +4,15 @@ This mkdocs plugin scans your files for `statblock` code blocks and renders them
 
 ## Installation
 
+```sh
+pip install mkdocs-statblock-plugin
+```
+
+### Requirements
+
+* Python >= 3.6
+* MkDocs >= 1.6.0
+
 ## Configuration
 
 Add the following lines to your `mkdocs.yml`:
