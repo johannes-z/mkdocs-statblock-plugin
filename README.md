@@ -112,9 +112,8 @@ property.
 
 ## Roadmap
 
-* Custom templates and a way to specify which template to use in statblocks
-    * This would also allow support for more systems
-* Performance fixes - only include statblock files that are referenced.
+* [x] Custom templates and a way to specify which template to use in statblocks
+* [ ] Performance fixes - only include statblock files that are referenced.
 
 ## License
 MIT License © 2024-PRESENT Johannes Zwirchmayr
