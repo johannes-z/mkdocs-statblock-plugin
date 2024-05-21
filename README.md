@@ -1,8 +1,9 @@
 # mkdocs statblock plugin
 
 This mkdocs plugin scans your files for `statblock` code blocks and renders them
-as statblocks. Right now, it only supports Pathfinder 1e statblocks. The
-statblock code blocks are formatted as yaml.
+as statblocks. The statblock templates are defined with jinja templates, which
+allows for great flexibility and thus supports virtually any system - all you
+need is data in yaml format, and the template.
 
 ## Installation
 
