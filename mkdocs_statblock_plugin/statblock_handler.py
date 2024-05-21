@@ -31,11 +31,11 @@ def testFilter(input, label, default=""):
 
 
 class StatBlockHandler:
-    def __init__(self, templates, templatesPath, defaultTemplate, bestiary):
+    def __init__(self, templates, templates_path, default_template, bestiary):
         self.templates = templates
-        self.defaultTemplate = defaultTemplate
+        self.default_template = default_template
         self.bestiary = bestiary
-        self.template_env = Environment(loader=FileSystemLoader(templatesPath))
+        self.template_env = Environment(loader=FileSystemLoader(templates_path))
         self.template_env.filters["modifier"] = modifierFilter
         self.template_env.filters["testFilter"] = testFilter
 
@@ -51,7 +51,7 @@ class StatBlockHandler:
             template = self.template_env.get_template(
                 statblock_data.get("template")
                 if statblock_data.get("template")
-                else self.defaultTemplate
+                else self.default_template
             )
 
             rendered_statblock = template.render(statblock_data)
