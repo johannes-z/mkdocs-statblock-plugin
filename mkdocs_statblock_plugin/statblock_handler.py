@@ -31,14 +31,13 @@ def testFilter(input, label, default=""):
 
 
 class StatBlockHandler:
-    def __init__(self, bestiary):
+    def __init__(self, templates, templatesPath, defaultTemplate, bestiary):
+        self.templates = templates
+        self.defaultTemplate = defaultTemplate
         self.bestiary = bestiary
-        self.template_env = Environment(
-            loader=FileSystemLoader(os.path.dirname(__file__))
-        )
+        self.template_env = Environment(loader=FileSystemLoader(templatesPath))
         self.template_env.filters["modifier"] = modifierFilter
         self.template_env.filters["testFilter"] = testFilter
-        self.template = self.template_env.get_template("template.html")
 
     def process_statblocks(self, markdown_content):
         statblock_pattern = r"```statblock\n(.*?)```"
@@ -48,15 +47,19 @@ class StatBlockHandler:
         processed_content = markdown_content
         for statblock in statblocks:
             statblock_data = self.extendMonster(yaml.safe_load(statblock))
-            rendered_statblock = self.render_template(statblock_data)
+
+            template = self.template_env.get_template(
+                statblock_data.get("template")
+                if statblock_data.get("template")
+                else self.defaultTemplate
+            )
+
+            rendered_statblock = template.render(statblock_data)
             processed_content = processed_content.replace(
                 f"```statblock\n{statblock}```", rendered_statblock
             )
 
         return processed_content
-
-    def render_template(self, data):
-        return self.template.render(data)
 
     def extendMonster(self, data):
         """Extends the monster statblock with the base monster data if it exists in the bestiary."""

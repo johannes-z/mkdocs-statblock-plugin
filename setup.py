@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="mkdocs_statblock_plugin",
-    version="0.1.2",
+    version="0.1.3",
     description="MkDocs plugin to format YAML within statblock superfences as HTML",
     long_description=long_description,
     long_description_content_type="text/markdown",
