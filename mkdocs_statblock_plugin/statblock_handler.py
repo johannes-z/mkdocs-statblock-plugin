@@ -1,6 +1,7 @@
 import yaml
 import os
 import re
+import htmlmin
 from jinja2 import Environment, FileSystemLoader
 
 
@@ -56,7 +57,8 @@ class StatBlockHandler:
 
             rendered_statblock = template.render(statblock_data)
             processed_content = processed_content.replace(
-                f"```statblock\n{statblock}```", rendered_statblock
+                f"```statblock\n{statblock}```",
+                htmlmin.minify(rendered_statblock, remove_empty_space=True),
             )
 
         return processed_content
