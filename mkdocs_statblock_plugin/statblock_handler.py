@@ -6,9 +6,11 @@ from jinja2 import Environment, FileSystemLoader
 
 
 def kebabize(string):
+    """Converts a string to kebab-case."""
     if string:
         parts = re.findall(
-            r"[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+", string
+            r"[A-Z]{2,}(?=[A-Z][a-z]+|\b)|[A-Z]?[a-z]+|[A-Z]",
+            string,
         )
         return "-".join(map(str.lower, parts))
     else:
