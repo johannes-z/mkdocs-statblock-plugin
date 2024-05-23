@@ -70,8 +70,13 @@ class StatBlockHandler:
         monster_name = data["monster"]
         kebab_name = kebabize(monster_name)
         baseMonsterFilePath = self.bestiary[kebab_name + ".yaml"]
-        if os.path.exists(baseMonsterFilePath):
-            with open(baseMonsterFilePath, "r") as f:
-                monster_data = yaml.safe_load(f)
-            data = {**monster_data, **data}
+
+        if not baseMonsterFilePath or not os.path.exists(baseMonsterFilePath):
+            return {
+                **data,
+                **{"error": f"Monster '{monster_name}' not found in bestiary."},
+            }
+        with open(baseMonsterFilePath, "r") as f:
+            monster_data = yaml.safe_load(f)
+        data = {**monster_data, **data}
         return data
